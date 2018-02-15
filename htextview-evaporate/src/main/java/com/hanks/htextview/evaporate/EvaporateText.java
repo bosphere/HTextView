@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.text.Layout;
 import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
@@ -62,7 +61,7 @@ public class EvaporateText extends HText {
         mHTextView.post(new Runnable() {
             @Override
             public void run() {
-                oldStartX = mHTextView.getLayout().getLineLeft(0);
+                oldStartX = mHTextView.getLayout() != null ? mHTextView.getLayout().getLineLeft(0) : 0f;
                 EvaporateText.super.animateText(text);
             }
         });
@@ -96,7 +95,7 @@ public class EvaporateText extends HText {
     @Override
     protected void drawFrame(Canvas canvas) {
 
-        float startX = mHTextView.getLayout().getLineLeft(0);
+        float startX = mHTextView.getLayout() != null ? mHTextView.getLayout().getLineLeft(0) : 0f;
         float startY = mHTextView.getBaseline();
 
         float offset = startX;

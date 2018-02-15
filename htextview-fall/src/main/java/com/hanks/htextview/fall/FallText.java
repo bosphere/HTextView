@@ -64,7 +64,7 @@ public class FallText extends HText {
         mHTextView.post(new Runnable() {
             @Override
             public void run() {
-                oldStartX = mHTextView.getLayout().getLineLeft(0);
+                oldStartX = mHTextView.getLayout() != null ? mHTextView.getLayout().getLineLeft(0) : 0f;
                 FallText.super.animateText(text);
             }
         });
@@ -99,7 +99,7 @@ public class FallText extends HText {
 
     @Override
     public void drawFrame(Canvas canvas) {
-        float startX = mHTextView.getLayout().getLineLeft(0);
+        float startX = mHTextView.getLayout() != null ? mHTextView.getLayout().getLineLeft(0) : 0f;
         float startY = mHTextView.getBaseline();
         float offset = startX;
         float oldOffset = oldStartX;

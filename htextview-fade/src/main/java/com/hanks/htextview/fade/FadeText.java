@@ -104,6 +104,9 @@ public class FadeText extends HText {
     @Override
     protected void drawFrame(Canvas canvas) {
         Layout layout = mHTextView.getLayout();
+        if (layout == null) {
+            return;
+        }
         int gapIndex = 0;
         for (int i = 0; i < layout.getLineCount(); i++) {
             int lineStart = layout.getLineStart(i);

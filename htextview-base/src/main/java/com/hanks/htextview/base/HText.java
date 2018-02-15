@@ -53,7 +53,7 @@ public abstract class HText implements IHText {
                 mTextSize = mHTextView.getTextSize();
                 mWidth = mHTextView.getWidth();
                 mHeight = mHTextView.getHeight();
-                oldStartX = mHTextView.getLayout().getLineLeft(0);
+                oldStartX = mHTextView.getLayout() != null ? mHTextView.getLayout().getLineLeft(0) : 0f;
                 initVariables();
             }
         });
