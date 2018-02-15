@@ -17,8 +17,8 @@ android {
 }
 
 dependencies {
-//     compile(project(':htextview-base')) { transitive = true }
-    implementation "com.hanks:htextview-base:$library_version"
+     compile(project(':htextview-base')) { transitive = true }
+//    implementation "com.hanks:htextview-base:$library_version"
 }
 
 apply plugin: 'com.novoda.bintray-release'
